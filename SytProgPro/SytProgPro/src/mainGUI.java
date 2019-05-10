@@ -1,7 +1,9 @@
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,6 +24,12 @@ public class mainGUI extends JFrame implements ActionListener{
 	public static JTextField portT=new JTextField(15);
 	JPanel centerPanel=new JPanel();
 	JFrame frame;
+	
+	String serverperseon="instr";
+	String clientname;
+	int port;
+	String ip;
+	
 	public mainGUI() {
 		frame=new JFrame("Online Multimedia Education");
 		frame.setSize(250, 300);
@@ -40,6 +48,8 @@ public class mainGUI extends JFrame implements ActionListener{
 		centerPanel.add(connectB);
 		frame.setLayout(new BorderLayout());
 		frame.add("Center", centerPanel);
+		serverStartB.addActionListener(this);
+		connectB.addActionListener(this);
 		frame.setVisible(true);
 	}
 	public static void main(String[] args) {
@@ -50,11 +60,24 @@ public class mainGUI extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource()==serverStartB) {
-			new MultimediaEducationGUI();
-		}
-		else if (e.getSource()==connectB) {
 			
+			new MultimediaEducationGUI();
+			//new StartServer();
 		}
+		if (e.getSource()==connectB) {
+			new MultimediaEducationGUI();
+			//new Client();
+		}
+	}
+	
+	public String getName() {
+		return usernameT.getText();
+	}
+	public String getPort() {
+		return portT.getText();
+	}
+	public String getIp() {
+		return ipT.getText();
 	}
 
 }

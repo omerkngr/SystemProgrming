@@ -11,7 +11,6 @@ public class ServerThread extends Thread {
 		public ServerThread (Socket socket, int cnt) {
 			this.serverClient=socket;
 			this.clientno=cnt;
-			//name=Client.getClientName();
 		}
 		
 		@Override
@@ -35,6 +34,7 @@ public class ServerThread extends Thread {
 				     outStream.close();
 				    serverClient.close();
 			    }catch(IOException ex){
+			    	ex.printStackTrace();
 			      System.out.println(ex);
 			    }finally{
 			      System.out.println("Client - " + clientno + " exit!! ");

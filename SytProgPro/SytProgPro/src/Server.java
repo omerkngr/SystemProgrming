@@ -20,6 +20,7 @@ public class Server {
 		        sct.start();
 		      }
 		    }catch(Exception e){
+		    	e.printStackTrace();
 		      System.out.println(e);
 		    }
 

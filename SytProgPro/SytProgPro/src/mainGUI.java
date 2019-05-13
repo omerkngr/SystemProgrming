@@ -61,7 +61,7 @@ public class mainGUI extends JFrame implements ActionListener{
 			bt.start();
 		}
 		if (e.getSource()==connectB) {
-			//new MultimediaEducationGUI();
+			new MultimediaEducationGUI();
 		}
 	}
 	

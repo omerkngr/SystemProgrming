@@ -1,26 +1,17 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.GridLayout;
-import java.awt.Image;
-import java.awt.Insets;
 import java.awt.Label;
-import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
-import javax.swing.text.html.ImageView;
 
 public class MultimediaEducationGUI extends JFrame implements ActionListener{
 	/**
@@ -87,7 +78,7 @@ public class MultimediaEducationGUI extends JFrame implements ActionListener{
 		
 		audiencePanel=new JPanel();
 		audiencePanel.setBorder(new TitledBorder(new LineBorder(Color.black),"AUDIENCE"));
-		audiencePanel.add(new Label("ins"));
+		audiencePanel.add(new Label(Server.getName()));
 		audiencePanel.setPreferredSize(new Dimension(125, 450));
 		eastPanel.add(audiencePanel);
 		

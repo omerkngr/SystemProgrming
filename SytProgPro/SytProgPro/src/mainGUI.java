@@ -1,10 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -60,13 +56,12 @@ public class mainGUI extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource()==serverStartB) {
-			
 			new MultimediaEducationGUI();
-			//new StartServer();
+		 ButtonThread bt=new ButtonThread();
+			bt.start();
 		}
 		if (e.getSource()==connectB) {
 			new MultimediaEducationGUI();
-			//new Client();
 		}
 	}
 	

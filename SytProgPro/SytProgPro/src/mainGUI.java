@@ -1,14 +1,15 @@
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class mainGUI extends JFrame implements ActionListener{
-
+public class mainGUI extends JFrame implements ActionListener {
 	/**
 	 * 
 	 */
@@ -22,9 +23,9 @@ public class mainGUI extends JFrame implements ActionListener{
 	JFrame frame;
 	
 	String serverperseon="instr";
-	String clientname;
-	int port;
-	String ip;
+	public static String clientN;
+	static int port;
+	static String ip;
 	
 	public mainGUI() {
 		frame=new JFrame("Online Multimedia Education");
@@ -35,7 +36,7 @@ public class mainGUI extends JFrame implements ActionListener{
 		
 		centerPanel.add(serverStartB);
 		centerPanel.add(new JLabel("OR"));
-		usernameT.setText("username");
+		usernameT.setText("user name");
 		centerPanel.add(usernameT);
 		ipT.setText("IP address");
 		centerPanel.add(ipT);
@@ -55,24 +56,28 @@ public class mainGUI extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getSource()==serverStartB) {
-			new MultimediaEducationGUI();
-		 ButtonThread bt=new ButtonThread();
-			bt.start();
-		}
-		if (e.getSource()==connectB) {
-			new MultimediaEducationGUI();
-		}
+			ServerButtonThread sbt=new ServerButtonThread();
+			ConnectButtonThread cbt=new ConnectButtonThread();
+			
+			if (e.getSource()==serverStartB) {
+				sbt.start();
+			}
+				if (e.getSource()==connectB) {
+					cbt.start();
+				}
 	}
 	
-	public String getName() {
-		return usernameT.getText();
+	public static String getClientName() {
+		clientN=usernameT.getText();
+		return clientN;
 	}
-	public String getPort() {
-		return portT.getText();
+	public static int getPort() {
+		port=Integer.parseInt(portT.getText());
+		return port;
 	}
-	public String getIp() {
-		return ipT.getText();
+	public static String getIp() {
+		ip=ipT.getText();
+		return ip;
 	}
 
 }
